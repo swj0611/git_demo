@@ -27,16 +27,16 @@ public class HomeController {
 	@Autowired
 	private ContactDAO contactDAO;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/contact")
 	public ModelAndView listContact(ModelAndView model) throws IOException{
 		List<Contact> listContact = contactDAO.list();
 		model.addObject("listContact", listContact);
-		model.setViewName("home");
+		model.setViewName("contact");
 		
 		return model;
 	}
 	
-	@RequestMapping(value = "/newContact", method = RequestMethod.GET)
+	@RequestMapping(value = "contact/newContact", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		Contact newContact = new Contact();
 		model.addObject("contact", newContact);
@@ -44,20 +44,20 @@ public class HomeController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/saveContact", method = RequestMethod.POST)
+	@RequestMapping(value = "contact/saveContact", method = RequestMethod.POST)
 	public ModelAndView saveContact(@ModelAttribute Contact contact) {
-		contactDAO.saveOrUpdate(contact);		
-		return new ModelAndView("redirect:/");
+		contactDAO.saveOrUpdate(contact);
+		return new ModelAndView("redirect:/contact");
 	}
 	
-	@RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
+	@RequestMapping(value = "contact/deleteContact", method = RequestMethod.GET)
 	public ModelAndView deleteContact(HttpServletRequest request) {
 		int contactId = Integer.parseInt(request.getParameter("id"));
 		contactDAO.delete(contactId);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/contact");
 	}
 	
-	@RequestMapping(value = "/editContact", method = RequestMethod.GET)
+	@RequestMapping(value = "contact/editContact", method = RequestMethod.GET)
 	public ModelAndView editContact(HttpServletRequest request) {
 		int contactId = Integer.parseInt(request.getParameter("id"));
 		Contact contact = contactDAO.get(contactId);
