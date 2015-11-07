@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="contact">contact</a>
-<a href="equip">equipment</a>
+<a href="contact">contact</a><br/>
+<a href="equip">equipment</a><br/>
+<a href="file">fileupload</a><br/>
 </body>
 </html>

@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring")
@@ -33,6 +35,14 @@ public class BaseConfiguration extends WebMvcConfigurerAdapter{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-
+   
+	@Bean
+	public MultipartResolver getMultipartResolver(){
+		CommonsMultipartResolver multipartresolver=new CommonsMultipartResolver();
+		multipartresolver.setDefaultEncoding("UTF-8");
+		
+		return multipartresolver;
+	}
+   
 	
 }
