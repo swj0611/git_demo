@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.codejava.spring.dao.ContactDAO;
+import net.codejava.spring.dao.daointerface.ContactDAO;
 import net.codejava.spring.model.Contact;
 @Controller
 public class StartController {

@@ -1,4 +1,4 @@
-package net.codejava.spring.dao;
+package net.codejava.spring.dao.daoimpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import net.codejava.spring.dao.daointerface.ContactDAO;
 import net.codejava.spring.model.Contact;
 
 import org.springframework.dao.DataAccessException;

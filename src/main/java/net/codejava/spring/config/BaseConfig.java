@@ -20,8 +20,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring")
 @EnableWebMvc
-@Import(DataSourceConfig.class)
-public class BaseConfiguration extends WebMvcConfigurerAdapter{
+@Import({DataSourceConfig.class,InterceptorConfig.class})
+public class BaseConfig extends WebMvcConfigurerAdapter{
 
 	@Bean
 	public ViewResolver getViewResolver(){

@@ -10,5 +10,6 @@
 <a href="contact">contact</a><br/>
 <a href="equip">equipment</a><br/>
 <a href="file">fileupload</a><br/>
+<a href="toajax">ajax</a><br/>
 </body>
 </html>

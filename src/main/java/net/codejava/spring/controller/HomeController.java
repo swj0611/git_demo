@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import net.codejava.spring.dao.ContactDAO;
+import net.codejava.spring.dao.daointerface.ContactDAO;
 import net.codejava.spring.model.Contact;
 
 import org.springframework.beans.factory.annotation.Autowired;

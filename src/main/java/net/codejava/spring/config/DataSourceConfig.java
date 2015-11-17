@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import net.codejava.spring.dao.ContactDAO;
-import net.codejava.spring.dao.ContactDAOImpl;
+import net.codejava.spring.dao.daoimpl.ContactDAOImpl;
+import net.codejava.spring.dao.daointerface.ContactDAO;
 
 @Configuration
 public class DataSourceConfig {
