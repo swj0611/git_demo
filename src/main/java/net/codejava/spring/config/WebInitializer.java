@@ -12,12 +12,13 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) throws ServletException {
-
+    	
 
         // Create the 'root' Spring application context
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
@@ -25,6 +26,17 @@ public class WebInitializer implements WebApplicationInitializer {
         servletContext.addListener(new ContextLoaderListener(rootContext));
       
         
+        //CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();  
+       // characterEncodingFilter.setEncoding("UTF-8");  
+       // characterEncodingFilter.setForceEncoding(true); 
+        //FilterRegistration filterRegistration =  
+           //  servletContext.addFilter("characterEncodingFilter", characterEncodingFilter);  
+          //   filterRegistration.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), false, "/");  
+
+
+        //FilterRegistration.Dynamic securityFilter = servletContext.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class);
+       // securityFilter.addMappingForUrlPatterns(null, false, "/*");
+
         // Manage the lifecycle of the root application context
         AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
         webContext.register(BaseConfig.class);

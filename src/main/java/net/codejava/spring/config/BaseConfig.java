@@ -21,7 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring")
 @EnableWebMvc
-@Import({DataSourceConfig.class,WebSecurityConfig.class})
+@Import({DataSourceConfig.class})
 //@ImportResource("/WEB-INF/SecurityConfig.xml")
 public class BaseConfig extends WebMvcConfigurerAdapter{
 

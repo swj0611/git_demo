@@ -25,8 +25,8 @@ $(document).ready(autoAjax);
   	        },  
   	        success:function(data){  
   	          
-  	           var htmlstr="<table border='1'>手动异步刷新"+
-  	           "<tr><td>编号</td><td>姓名</td><td>地址</td><td>电话</td><td>邮箱</td><td>id号</td></tr>";
+  	           var htmlstr="<table border='1'>"+
+  	           "<tr><td>number</td><td>name</td><td>adress</td><td>telephone</td><td>email</td><td>id</td></tr>";
   	           $.each(data,function(idx,obj){
   	        	 htmlstr=htmlstr+"<tr><td>";
   	        	 htmlstr=htmlstr+idx;
@@ -55,8 +55,8 @@ $(document).ready(autoAjax);
 	        },  
 	        success:function(data){  
 	          
-	           var htmlstr="<table border='1'>自动异步刷新"+
-	           "<tr><td>编号</td><td>姓名</td><td>地址</td><td>电话</td><td>邮箱</td><td>id号</td></tr>";
+	           var htmlstr="<table border='1'>auto"+
+	           "<tr><td>number</td><td>name</td><td>address</td><td>tele</td><td>email</td><td>id</td></tr>";
 	           $.each(data,function(idx,obj){
 	        	 htmlstr=htmlstr+"<tr><td>";
 	        	 htmlstr=htmlstr+idx;
