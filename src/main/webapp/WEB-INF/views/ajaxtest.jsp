@@ -5,9 +5,22 @@
 <head>
 <script type="text/javascript" src="resources/jquery-2.1.3.js"></script>  
 <script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>  
+<!-- 添加csrf标记，防止crsf安全过滤器无法识别ajax访问的crsf_token-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">  
+<meta name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <title>Insert title here</title>  
 <script type="text/javascript">  
+$(function () {
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$(document).ajaxSend(function(e, xhr, options) {
+		xhr.setRequestHeader(header, token);
+	});
+	});
+
 $(document).ready(ajaxTest);
 $(document).ready(autoAjax);
  
@@ -18,14 +31,15 @@ $(document).ready(autoAjax);
         	 data:"name="+$("#name").val(),  
   	       //用GET方法当请求参数不变时会因部分浏览器缓存而无法更新
   	       type:"POST",  
-  	       dataType: 'json',  
-  	        url:"autoajax",  
+  	       dataType:'json',  
+  	        url:"autoajax", 
+  	        async:true,
   	        error:function(data){  
   	            alert("出错了！！:"+data[0].name);  
   	        },  
   	        success:function(data){  
-  	          
-  	           var htmlstr="<table border='1'>"+
+  	        	alert("这是提示！！:"+data[0].name);  
+  	           var htmlstr="<table border='1'>手动异步刷新"+
   	           "<tr><td>number</td><td>name</td><td>adress</td><td>telephone</td><td>email</td><td>id</td></tr>";
   	           $.each(data,function(idx,obj){
   	        	 htmlstr=htmlstr+"<tr><td>";
@@ -55,7 +69,7 @@ $(document).ready(autoAjax);
 	        },  
 	        success:function(data){  
 	          
-	           var htmlstr="<table border='1'>auto"+
+	           var htmlstr="<table border='1'>自动异步刷新"+
 	           "<tr><td>number</td><td>name</td><td>address</td><td>tele</td><td>email</td><td>id</td></tr>";
 	           $.each(data,function(idx,obj){
 	        	 htmlstr=htmlstr+"<tr><td>";
