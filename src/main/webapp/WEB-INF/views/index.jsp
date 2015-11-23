@@ -10,5 +10,7 @@
 <a href="contact">contact</a><br/>
 <a href="file">fileupload</a><br/>
 <a href="toajax">ajax</a><br/>
+<a href="toadmin">admin</a><br/>
+<a href="logout">logout</a><br/>
 </body>
 </html>

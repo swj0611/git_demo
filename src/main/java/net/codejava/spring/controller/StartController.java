@@ -16,5 +16,12 @@ public class StartController {
 		
 		return model;
 	}
+	@RequestMapping(value="/toadmin")
+	public ModelAndView adminTest(){
+		ModelAndView model=new ModelAndView();
+		model.setViewName("admin");
+		
+		return model;
+	}
 }
 	
